@@ -1,0 +1,13 @@
+.dummyClass{color:black;}
+
+.slds-col {
+		height: 150px;
+		margin: auto;
+		border: 1px solid gray;
+		border-radius: 6px;
+		font-size: 90px;
+		text-align: center;
+		line-height: 120px;
+		-webkit-text-fill-color: black;
+
+}

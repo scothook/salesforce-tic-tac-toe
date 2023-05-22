@@ -1,0 +1,21 @@
+<template>
+		<lightning-card title="Tic-Tac-Toe" icon-name="utility:edit">
+				<div class="slds-m-around_medium" >
+						<div class="slds-grid slds-wrap">
+								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b1" onclick={handleBoxClick}></lightning-button>
+								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b2" onclick={handleBoxClick}></lightning-button>
+								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b3" onclick={handleBoxClick}></lightning-button>
+								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b4" onclick={handleBoxClick}></lightning-button>
+								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b5" onclick={handleBoxClick}></lightning-button>
+								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b6" onclick={handleBoxClick}></lightning-button>
+								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b7" onclick={handleBoxClick}></lightning-button>
+								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b8" onclick={handleBoxClick}></lightning-button>
+								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b9" onclick={handleBoxClick}></lightning-button>
+						</div>
+						<br/><br/>
+						<p class="slds-align_absolute-center">{subText}</p>
+						<hr/>
+						<lightning-button variant="destructive-text" label="Reset" title="Reset the game" class="slds-align_absolute-center" onclick={handleResetClick}></lightning-button>
+				</div>
+		</lightning-card>
+</template>
