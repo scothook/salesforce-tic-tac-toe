@@ -1,6 +1,10 @@
 <template>
-		<lightning-card title="Tic-Tac-Toe" icon-name="utility:edit">
+		<lightning-card title="Tic-Tac-Toe">
 				<div class="slds-m-around_medium" >
+						<span class={xScore}>X: 0 wins</span>
+						<span class={oScore}>O: 0 wins</span>
+						<p class="slds-float_right">{subText}</p>
+						<br/><br/>
 						<div class="slds-grid slds-wrap">
 								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b1" onclick={handleBoxClick}></lightning-button>
 								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b2" onclick={handleBoxClick}></lightning-button>
@@ -12,9 +16,7 @@
 								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b8" onclick={handleBoxClick}></lightning-button>
 								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b9" onclick={handleBoxClick}></lightning-button>
 						</div>
-						<br/><br/>
-						<p class="slds-align_absolute-center">{subText}</p>
-						<hr/>
+						<br/>
 						<lightning-button variant="destructive-text" label="Reset" title="Reset the game" class="slds-align_absolute-center" onclick={handleResetClick}></lightning-button>
 				</div>
 		</lightning-card>

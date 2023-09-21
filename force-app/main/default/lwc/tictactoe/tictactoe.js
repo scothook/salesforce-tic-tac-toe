@@ -5,9 +5,14 @@ export default class TicTacToe extends LightningElement {
 		
 		playerXTurn = true;
 		subText = "New Game";
+
+		xScore = "slds-badge";
+		oScore = "slds-badge";
 	
 		handleResetClick(event){
 			this.subText = "New Game";
+			this.xScore = "slds-badge";
+			this.oScore = "slds-badge";
 
 			this.refs.b1.disabled = false;
 			this.refs.b2.disabled = false;
@@ -98,6 +103,11 @@ export default class TicTacToe extends LightningElement {
 		declareWinner(game, shape){
 				alert("Player " + shape + " Wins");
 				this.subText = "Player " + shape + " Wins";
+				if(shape == "x") {
+					this.xScore = "slds-badge slds-theme_success"
+				} else {
+					this.oScore = "slds-badge slds-theme_success"
+				}
 				game.b1.disabled = true;
 				game.b2.disabled = true;
 				game.b3.disabled = true;
