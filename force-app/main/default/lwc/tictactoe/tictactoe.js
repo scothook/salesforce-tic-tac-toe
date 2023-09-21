@@ -6,13 +6,15 @@ export default class TicTacToe extends LightningElement {
 		playerXTurn = true;
 		subText = "New Game";
 
-		xScore = "slds-badge";
-		oScore = "slds-badge";
+		xScoreBox = "slds-badge";
+		oScoreBox = "slds-badge";
+		xWinCount = 0;
+		oWinCount = 0;
 	
 		handleResetClick(event){
 			this.subText = "New Game";
-			this.xScore = "slds-badge";
-			this.oScore = "slds-badge";
+			this.xScoreBox = "slds-badge";
+			this.oScoreBox = "slds-badge";
 
 			this.refs.b1.disabled = false;
 			this.refs.b2.disabled = false;
@@ -104,9 +106,11 @@ export default class TicTacToe extends LightningElement {
 				alert("Player " + shape + " Wins");
 				this.subText = "Player " + shape + " Wins";
 				if(shape == "x") {
-					this.xScore = "slds-badge slds-theme_success"
+					this.xScoreBox = "slds-badge slds-theme_success";
+					this.xWinCount++;
 				} else {
-					this.oScore = "slds-badge slds-theme_success"
+					this.oScoreBox = "slds-badge slds-theme_success";
+					this.oWinCount++;
 				}
 				game.b1.disabled = true;
 				game.b2.disabled = true;
