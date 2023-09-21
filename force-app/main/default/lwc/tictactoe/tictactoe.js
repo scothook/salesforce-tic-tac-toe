@@ -1,4 +1,5 @@
 import { LightningElement } from 'lwc';
+import { RefreshEvent } from 'lightning/refresh';
 
 export default class TicTacToe extends LightningElement {
 		
@@ -6,7 +7,27 @@ export default class TicTacToe extends LightningElement {
 		subText = "New Game";
 	
 		handleResetClick(event){
-				eval("$A.get('e.force:refreshView').fire();");
+			this.subText = "New Game";
+
+			this.refs.b1.disabled = false;
+			this.refs.b2.disabled = false;
+			this.refs.b3.disabled = false;
+			this.refs.b4.disabled = false;
+			this.refs.b5.disabled = false;
+			this.refs.b6.disabled = false;
+			this.refs.b7.disabled = false;
+			this.refs.b8.disabled = false;
+			this.refs.b9.disabled = false;
+
+			this.refs.b1.label = "";
+			this.refs.b2.label = "";
+			this.refs.b3.label = "";
+			this.refs.b4.label = "";
+			this.refs.b5.label = "";
+			this.refs.b6.label = "";
+			this.refs.b7.label = "";
+			this.refs.b8.label = "";
+			this.refs.b9.label = "";
 		}
 		handleBoxClick(event){
 				event.target.disabled = true;
