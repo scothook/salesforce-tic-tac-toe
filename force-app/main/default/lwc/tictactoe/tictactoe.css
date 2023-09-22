@@ -1,5 +1,3 @@
-.dummyClass{color:black;}
-
 .slds-col {
 		height: 150px;
 		margin: auto;
@@ -12,10 +10,10 @@
 
 }
 
-.winning-square {
-	background-color: #2E844A;
+.slds-col:hover {
+	background-color: #F3F3F3;
 }
 
-lightning-button:hover {
-	background-color: #F3F3F3;
+.winning-square {
+	background-color: #2E844A;
 }

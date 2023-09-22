@@ -89,13 +89,14 @@ export default class TicTacToe extends LightningElement {
 										this.b7.disabled == true &&
 										this.b8.disabled == true &&
 										this.b9.disabled == true) {
-												alert("It's a Draw");
 												this.subText = "Draw";
 										}
 						},
 						wins : function(shape) {
 								if (this.b1.label == shape && this.b4.label == shape && this.b7.label == shape) {
-									//this.b1.style.backgroundColor = "#CDEFC4";
+									this.b1.style.backgroundColor = "#CDEFC4";
+									this.b4.style.backgroundColor = "#CDEFC4";
+									this.b7.style.backgroundColor = "#CDEFC4";
 									return true;
 								}
 								if (this.b2.label == shape && this.b5.label == shape && this.b8.label == shape) return true;
@@ -134,6 +135,5 @@ export default class TicTacToe extends LightningElement {
 				game.b7.disabled = true;
 				game.b8.disabled = true;
 				game.b9.disabled = true;
-		}
-		
+		}		
 }
