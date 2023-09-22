@@ -11,3 +11,11 @@
 		-webkit-text-fill-color: black;
 
 }
+
+.winning-square {
+	background-color: #2E844A;
+}
+
+lightning-button:hover {
+	background-color: #F3F3F3;
+}

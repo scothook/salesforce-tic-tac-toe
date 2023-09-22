@@ -35,6 +35,16 @@ export default class TicTacToe extends LightningElement {
 			this.refs.b7.label = "";
 			this.refs.b8.label = "";
 			this.refs.b9.label = "";
+
+			this.refs.b1.style.backgroundColor = "";
+			this.refs.b2.style.backgroundColor = "";
+			this.refs.b3.style.backgroundColor = "";
+			this.refs.b4.style.backgroundColor = "";
+			this.refs.b5.style.backgroundColor = "";
+			this.refs.b6.style.backgroundColor = "";
+			this.refs.b7.style.backgroundColor = "";
+			this.refs.b8.style.backgroundColor = "";
+			this.refs.b9.style.backgroundColor = "";
 		}
 		handleBoxClick(event){
 				event.target.disabled = true;
@@ -50,12 +60,13 @@ export default class TicTacToe extends LightningElement {
 		changeTurn() {
 				if (this.playerXTurn) {
 						this.playerXTurn = false;
-						this.subText = "Turn: o";
+						this.subText = "Turn: O";
 				} else {
 						this.playerXTurn = true;
-						this.subText = "Turn: x";
+						this.subText = "Turn: X";
 				}
 		}
+		
 		checkForGameOver() {
 				const game = {
 						b1: this.refs.b1,
@@ -83,7 +94,10 @@ export default class TicTacToe extends LightningElement {
 										}
 						},
 						wins : function(shape) {
-								if (this.b1.label == shape && this.b4.label == shape && this.b7.label == shape) return true;
+								if (this.b1.label == shape && this.b4.label == shape && this.b7.label == shape) {
+									//this.b1.style.backgroundColor = "#CDEFC4";
+									return true;
+								}
 								if (this.b2.label == shape && this.b5.label == shape && this.b8.label == shape) return true;
 								if (this.b3.label == shape && this.b6.label == shape && this.b9.label == shape) return true;
 								if (this.b1.label == shape && this.b2.label == shape && this.b3.label == shape) return true;
@@ -103,7 +117,6 @@ export default class TicTacToe extends LightningElement {
 				}
 		}
 		declareWinner(game, shape){
-				alert("Player " + shape + " Wins");
 				this.subText = "Player " + shape + " Wins";
 				if(shape == "x") {
 					this.xScoreBox = "slds-badge slds-theme_success";
@@ -122,4 +135,5 @@ export default class TicTacToe extends LightningElement {
 				game.b8.disabled = true;
 				game.b9.disabled = true;
 		}
+		
 }
