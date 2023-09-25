@@ -3,17 +3,31 @@ import { LightningElement } from 'lwc';
 export default class TicTacToe extends LightningElement {
 		
 		playerXTurn = true;
-		subText = "New Game";
+		playerXStarted = true;
 
-		xScoreBox = "slds-badge";
+		xScoreBox = "slds-badge slds-badge_inverse";
 		oScoreBox = "slds-badge";
 		xWinCount = 0;
 		oWinCount = 0;
 	
 		handleResetClick(event){
-			this.subText = "New Game";
-			this.xScoreBox = "slds-badge";
-			this.oScoreBox = "slds-badge";
+			if(this.playerXStarted == true) {
+				this.playerXStarted = false;
+				this.playerXTurn = false;
+			} else {
+				this.playerXStarted = true;
+				this.playerXTurn = true;
+			}
+			
+			if(this.playerXTurn == true) {
+				this.xScoreBox = "slds-badge slds-badge_inverse";
+				this.oScoreBox = "slds-badge";
+			} else {
+				this.xScoreBox = "slds-badge";
+				this.oScoreBox = "slds-badge slds-badge_inverse";
+			}
+			//this.xScoreBox = "slds-badge";
+			//this.oScoreBox = "slds-badge";
 
 			this.refs.b1.disabled = false;
 			this.refs.b2.disabled = false;
@@ -58,11 +72,13 @@ export default class TicTacToe extends LightningElement {
 		}
 		changeTurn() {
 				if (this.playerXTurn) {
+						this.xScoreBox = "slds-badge";
+						this.oScoreBox = "slds-badge slds-badge_inverse";
 						this.playerXTurn = false;
-						this.subText = "Turn: O";
 				} else {
+						this.xScoreBox = "slds-badge slds-badge_inverse";
+						this.oScoreBox = "slds-badge slds";
 						this.playerXTurn = true;
-						this.subText = "Turn: X";
 				}
 		}
 		checkForGameOver() {
@@ -120,9 +136,9 @@ export default class TicTacToe extends LightningElement {
 				};
 
 				if (game.wins("x")) {
-						this.declareWinner(game,"x");
+						this.declareWinner(game,"X");
 				} else if (game.wins("o")) {
-						this.declareWinner(game,"o");
+						this.declareWinner(game,"O");
 				} else {
 						this.checkForDraw(game);
 				}
@@ -137,15 +153,17 @@ export default class TicTacToe extends LightningElement {
 				game.b7.disabled == true &&
 				game.b8.disabled == true &&
 				game.b9.disabled == true) {
-					this.subText = "Draw";
+					this.xScoreBox = "slds-badge";
+					this.oScoreBox = "slds-badge";
 					}
 		}
 		declareWinner(game, shape){
-				this.subText = "Player " + shape + " Wins";
-				if(shape == "x") {
+				if(shape == "X") {
 					this.xScoreBox = "slds-badge slds-theme_success";
+					this.oScoreBox = "slds-badge";
 					this.xWinCount++;
 				} else {
+					this.xScoreBox = "slds-badge";
 					this.oScoreBox = "slds-badge slds-theme_success";
 					this.oWinCount++;
 				}

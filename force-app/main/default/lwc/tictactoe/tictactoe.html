@@ -1,9 +1,8 @@
 <template>
 		<lightning-card title="Tic-Tac-Toe">
 				<div class="slds-m-around_medium" >
-						<span class={xScoreBox}>X wins - {xWinCount}</span>
-						<span class={oScoreBox}>O wins - {oWinCount}</span>
-						<p class="slds-float_right">{subText}</p>
+						<span class={xScoreBox}>Player X: {xWinCount}</span>
+						<span class={oScoreBox}>Player O: {oWinCount}</span>
 						<br/><br/>
 						<div class="slds-grid slds-wrap">
 								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b1" onclick={handleBoxClick}></lightning-button>
