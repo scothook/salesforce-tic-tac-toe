@@ -1,5 +1,4 @@
 import { LightningElement } from 'lwc';
-import { RefreshEvent } from 'lightning/refresh';
 
 export default class TicTacToe extends LightningElement {
 		
@@ -66,7 +65,6 @@ export default class TicTacToe extends LightningElement {
 						this.subText = "Turn: X";
 				}
 		}
-		
 		checkForGameOver() {
 				const game = {
 						b1: this.refs.b1,
@@ -92,20 +90,47 @@ export default class TicTacToe extends LightningElement {
 												this.subText = "Draw";
 										}
 						},
+						highlightWinningSquares : function(b1, b2, b3) {
+							b1.style.backgroundColor = "#CDEFC4";
+							b2.style.backgroundColor = "#CDEFC4";
+							b3.style.backgroundColor = "#CDEFC4";
+						},
 						wins : function(shape) {
 								if (this.b1.label == shape && this.b4.label == shape && this.b7.label == shape) {
-									this.b1.style.backgroundColor = "#CDEFC4";
-									this.b4.style.backgroundColor = "#CDEFC4";
-									this.b7.style.backgroundColor = "#CDEFC4";
+									//this.b1.style.backgroundColor = "#CDEFC4";
+									//this.b4.style.backgroundColor = "#CDEFC4";
+									//this.b7.style.backgroundColor = "#CDEFC4";
+									this.highlightWinningSquares(this.b1, this.b4, this.b7);
 									return true;
 								}
-								if (this.b2.label == shape && this.b5.label == shape && this.b8.label == shape) return true;
-								if (this.b3.label == shape && this.b6.label == shape && this.b9.label == shape) return true;
-								if (this.b1.label == shape && this.b2.label == shape && this.b3.label == shape) return true;
-								if (this.b4.label == shape && this.b5.label == shape && this.b6.label == shape) return true;
-								if (this.b7.label == shape && this.b8.label == shape && this.b9.label == shape) return true;
-								if (this.b1.label == shape && this.b5.label == shape && this.b9.label == shape) return true;
-								if (this.b3.label == shape && this.b5.label == shape && this.b7.label == shape) return true;
+								if (this.b2.label == shape && this.b5.label == shape && this.b8.label == shape) {
+									this.highlightWinningSquares(this.b2, this.b5, this.b8);
+									return true;
+								}
+								if (this.b3.label == shape && this.b6.label == shape && this.b9.label == shape) {
+									this.highlightWinningSquares(this.b3, this.b6, this.b9);
+									return true;
+								}
+								if (this.b1.label == shape && this.b2.label == shape && this.b3.label == shape) {
+									this.highlightWinningSquares(this.b1, this.b2, this.b3);
+									return true;
+								}
+								if (this.b4.label == shape && this.b5.label == shape && this.b6.label == shape) {
+									this.highlightWinningSquares(this.b4, this.b5, this.b6);
+									return true;
+								}
+								if (this.b7.label == shape && this.b8.label == shape && this.b9.label == shape) {
+									this.highlightWinningSquares(this.b7, this.b8, this.b9);
+									return true;
+								}
+								if (this.b1.label == shape && this.b5.label == shape && this.b9.label == shape) {
+									this.highlightWinningSquares(this.b1, this.b5, this.b9);
+									return true;
+								}
+								if (this.b3.label == shape && this.b5.label == shape && this.b7.label == shape) {
+									this.highlightWinningSquares(this.b3, this.b5, this.b7);
+									return true;
+								}
 						}
 				};
 
