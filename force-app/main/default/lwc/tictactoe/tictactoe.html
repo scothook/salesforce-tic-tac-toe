@@ -1,6 +1,7 @@
 <template>
 		<lightning-card title="Tic-Tac-Toe">
 				<div class="slds-m-around_medium" >
+						<lightning-button variant="destructive-text" label="Reset" title="Reset the game" class="slds-float_right" onclick={handleResetClick}></lightning-button>
 						<span class={xScoreBox}>Player X: {xWinCount}</span>
 						<span class={oScoreBox}>Player O: {oWinCount}</span>
 						<br/><br/>
@@ -16,7 +17,7 @@
 								<lightning-button variant="base" class="slds-col slds-size_1-of-3" lwc:ref="b9" onclick={handleBoxClick}></lightning-button>
 						</div>
 						<br/>
-						<lightning-button variant="destructive-text" label="Reset" title="Reset the game" class="slds-align_absolute-center" onclick={handleResetClick}></lightning-button>
+						
 				</div>
 		</lightning-card>
 </template>
