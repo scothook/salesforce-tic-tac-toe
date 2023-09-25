@@ -77,19 +77,7 @@ export default class TicTacToe extends LightningElement {
 						b8: this.refs.b8,
 						b9: this.refs.b9,
 						
-						checkForDraw : function() {
-								if (this.b1.disabled == true &&
-										this.b2.disabled == true &&
-										this.b3.disabled == true &&
-										this.b4.disabled == true &&
-										this.b5.disabled == true &&
-										this.b6.disabled == true &&
-										this.b7.disabled == true &&
-										this.b8.disabled == true &&
-										this.b9.disabled == true) {
-												this.subText = "Draw";
-										}
-						},
+						
 						highlightWinningSquares : function(b1, b2, b3) {
 							b1.style.backgroundColor = "#CDEFC4";
 							b2.style.backgroundColor = "#CDEFC4";
@@ -97,9 +85,6 @@ export default class TicTacToe extends LightningElement {
 						},
 						wins : function(shape) {
 								if (this.b1.label == shape && this.b4.label == shape && this.b7.label == shape) {
-									//this.b1.style.backgroundColor = "#CDEFC4";
-									//this.b4.style.backgroundColor = "#CDEFC4";
-									//this.b7.style.backgroundColor = "#CDEFC4";
 									this.highlightWinningSquares(this.b1, this.b4, this.b7);
 									return true;
 								}
@@ -139,8 +124,21 @@ export default class TicTacToe extends LightningElement {
 				} else if (game.wins("o")) {
 						this.declareWinner(game,"o");
 				} else {
-						game.checkForDraw();
+						this.checkForDraw(game);
 				}
+		}
+		checkForDraw(game) {
+			if (game.b1.disabled == true &&
+				game.b2.disabled == true &&
+				game.b3.disabled == true &&
+				game.b4.disabled == true &&
+				game.b5.disabled == true &&
+				game.b6.disabled == true &&
+				game.b7.disabled == true &&
+				game.b8.disabled == true &&
+				game.b9.disabled == true) {
+					this.subText = "Draw";
+					}
 		}
 		declareWinner(game, shape){
 				this.subText = "Player " + shape + " Wins";
